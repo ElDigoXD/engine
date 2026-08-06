@@ -16,3 +16,6 @@
 [submodule "3rdParty/bgfx.cmake"]
 	path = 3rdParty/bgfx.cmake
 	url = https://github.com/bkaradzic/bgfx.cmake
+[submodule "3rdParty/enkiTS"]
+	path = 3rdParty/enkiTS
+	url = https://github.com/dougbinks/enkiTS
