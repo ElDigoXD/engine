@@ -13,3 +13,6 @@
 [submodule "3rdParty/joltphysics"]
 	path = 3rdParty/joltphysics
 	url = https://github.com/jrouwe/joltphysics
+[submodule "3rdParty/bgfx.cmake"]
+	path = 3rdParty/bgfx.cmake
+	url = https://github.com/bkaradzic/bgfx.cmake
