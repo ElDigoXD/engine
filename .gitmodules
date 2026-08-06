@@ -19,3 +19,6 @@
 [submodule "3rdParty/enkiTS"]
 	path = 3rdParty/enkiTS
 	url = https://github.com/dougbinks/enkiTS
+[submodule "3rdParty/tinygltf"]
+	path = 3rdParty/tinygltf
+	url = https://github.com/syoyo/tinygltf
