@@ -34,3 +34,6 @@
 [submodule "3rdParty/cereal"]
 	path = 3rdParty/cereal
 	url = https://github.com/USCiLab/cereal
+[submodule "3rdParty/tracy"]
+	path = 3rdParty/tracy
+	url = https://github.com/wolfpld/tracy
