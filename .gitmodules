@@ -40,3 +40,6 @@
 [submodule "3rdParty/simpleini"]
 	path = 3rdParty/simpleini
 	url = https://github.com/brofield/simpleini
+[submodule "3rdParty/imgui"]
+	path = 3rdParty/imgui
+	url = https://github.com/ocornut/imgui
