@@ -31,3 +31,6 @@
 [submodule "3rdParty/miniaudio"]
 	path = 3rdParty/miniaudio
 	url = https://github.com/mackron/miniaudio
+[submodule "3rdParty/cereal"]
+	path = 3rdParty/cereal
+	url = https://github.com/USCiLab/cereal
