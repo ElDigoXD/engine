@@ -28,3 +28,6 @@
 [submodule "3rdParty/zstd"]
 	path = 3rdParty/zstd
 	url = https://github.com/facebook/zstd
+[submodule "3rdParty/miniaudio"]
+	path = 3rdParty/miniaudio
+	url = https://github.com/mackron/miniaudio
