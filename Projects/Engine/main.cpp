@@ -3,7 +3,7 @@
 #include "GLFW/glfw3.h"
 #include "glm/glm.hpp"
 
-#include "../Engine/InputManager.h"
+#include "Core/InputManager.h"
 
 
 int main() {
