@@ -1,7 +1,5 @@
 
-#include <type_traits>
-
-namespace Math
+namespace math
 {
 	template<typename T>
 	Vec2<T>::Vec2()
@@ -15,6 +13,22 @@ namespace Math
 	Vec2<T>::Vec2(T p_x, T p_y)
 		: x(p_x)
 		, y(p_y)
+	{
+
+	}
+
+	template<typename T>
+	Vec2<T>::Vec2(const Vec2<T>& other)
+		: x(other.x)
+		, y(other.y)
+	{
+
+	}
+
+	template<typename T>
+	Vec2<T>::Vec2(Vec2<T>&& other)
+		: x(other.x)
+		, y(other.y)
 	{
 
 	}
@@ -83,5 +97,11 @@ namespace Math
 	bool Vec2<T>::operator!=(const Vec2<T>& other) const
 	{
 		return x != other.x || y != other.y;
+	}
+
+	template<typename T>
+	T Vec2<T>::operator[](int index) const
+	{
+		return data[index];
 	}
 }

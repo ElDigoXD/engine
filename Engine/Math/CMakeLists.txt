@@ -10,13 +10,18 @@ set(MATH_SOURCES
 )
 
 set(MATH_HEADERS
-    public/Math/Vector2.h,
+    public/Math/Vector2.h
     public/Math/Vector2.inl
+    public/Math/Vector3.h
+    public/Math/Vector3.inl
+    public/Math/Vector4.h
+    public/Math/Vector4.inl
 )
 
 add_library(Math ${LIB_TYPE}
     ${MATH_SOURCES}
-)
+    ${MATH_HEADERS}
+ "public/Math/Vector4.inl")
 
 # Alias para uso interno/externo
 add_library(Engine::Math ALIAS Math)

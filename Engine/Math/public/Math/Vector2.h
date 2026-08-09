@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Math
+namespace math
 {
 	template<typename T>
 	class alignas(16) Vec2
@@ -8,20 +8,18 @@ namespace Math
 	public:
 		Vec2();
 		Vec2(T x, T y);
-		//Vector2(Vector2<T>& other);
-		//Vector2(const Vector2<T>& other);
-		//Vector2(const Vector2<T>&& other);
+		Vec2(const Vec2<T>& other);
+		Vec2(Vec2<T>&& other);
 
 		Vec2 operator +(const Vec2& other) const;
 		Vec2 operator -(const Vec2& other) const;
 		Vec2 operator *(const Vec2& other) const;
-
-		Vec2 operator *(T value) const ;
-
+		Vec2 operator *(T value) const;
 		Vec2 operator /(const Vec2& other) const;
 		Vec2 operator /(T value) const requires (!std::is_integral_v<T>);
 		bool operator !=(const Vec2& other) const;
 		bool operator ==(const Vec2& other) const;
+		T operator[](int index) const;
 
 		union
 		{
