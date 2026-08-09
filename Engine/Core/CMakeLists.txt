@@ -41,6 +41,17 @@ target_compile_options(Core
         $<$<CXX_COMPILER_ID:Clang>:-Wall -Wextra>
         $<$<CXX_COMPILER_ID:MSVC>:/W4>
 )
+target_compile_options(Core
+    PRIVATE
+        $<$<CONFIG:Debug>:
+            $<$<CXX_COMPILER_ID:Clang>:-Wno-unused-parameter>
+            $<$<CXX_COMPILER_ID:MSVC>:/W4>
+        >
+        $<$<CONFIG:Release>:
+            $<$<CXX_COMPILER_ID:Clang>:-Wall -Wextra>
+            $<$<CXX_COMPILER_ID:MSVC>:/W4>
+        >
+)
 
 # Definiciones
 target_compile_definitions(Core
@@ -50,6 +61,7 @@ target_compile_definitions(Core
 
 # Dependencias (ejemplo)
 target_link_libraries(Core PUBLIC 
-    glfw
-    glm::glm
+    3rdParty::glfw
+    3rdParty::Catch2
+    3rdParty::glm
 )
