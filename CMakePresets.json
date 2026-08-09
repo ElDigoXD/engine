@@ -1,23 +1,25 @@
 {
   "version": 6,
-  "configurePresets": [
-    {
-      "name": "clang-local",
-      "displayName": "Clang (3rdParty)",
-      "generator": "Ninja",
-      "binaryDir": "${sourceDir}/Build/Clang",
-        "cacheVariables": {
-            "CMAKE_BUILD_TYPE": "Debug",
-            "CMAKE_C_COMPILER": "${sourceDir}/3rdParty/Toolchain/clang/clang.exe",
-            "CMAKE_CXX_COMPILER": "${sourceDir}/3rdParty/Toolchain/clang/clang++.exe",
-            "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
-        }
-    }
-  ],
+    "configurePresets": [
+        {
+            "name": "x64",
+            "displayName": "x64",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/Build/clang",
+            "configurationType": "Debug",
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "${sourceDir}/3rdParty/Toolchain/clang/clang.exe",
+                "CMAKE_CXX_COMPILER": "${sourceDir}/3rdParty/Toolchain/clang/clang++.exe",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+                "CMAKE_CXX_STANDARD": "20",
+                "BUILD_TESTS": "ON"
+            }
+        },
+    ],
   "buildPresets": [
     {
-      "name": "clang-local",
-      "configurePreset": "clang-local"
-    }
+        "name": "x64-Debug",
+        "configurePreset": "x64"
+    },
   ]
 }
