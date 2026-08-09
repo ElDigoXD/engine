@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.30)
 
+option(BUILD_TESTS "Build unit tests" ON)
 
 project(engine)
 
