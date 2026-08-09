@@ -14,7 +14,7 @@ set(MATH_HEADERS
     public/Math/Vector2.inl
 )
 
-add_library(Math STATIC
+add_library(Math ${LIB_TYPE}
     ${MATH_SOURCES}
 )
 
@@ -29,12 +29,6 @@ target_include_directories(Math
 target_compile_features(Math
     PUBLIC
         cxx_std_20
-)
-
-target_compile_options(Math
-    PRIVATE
-        $<$<CXX_COMPILER_ID:Clang>:-Wall -Wextra>
-        $<$<CXX_COMPILER_ID:MSVC>:/W4>
 )
 
 target_compile_options(Math
@@ -56,7 +50,7 @@ target_compile_definitions(Math
 )
 
 if(BUILD_TESTS)
-    add_subdirectory(UTs)
+    add_subdirectory(UnitTests)
 endif()
 
 

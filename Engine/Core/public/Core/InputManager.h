@@ -5,6 +5,7 @@
 #include "GLFW/glfw3.h"
 
 #include "glm/glm.hpp"
+#include "Core/CoreLibType.h"
 
 /// Same as GLFW's key values
 enum class Key {
@@ -146,7 +147,7 @@ enum class MouseButton {
 };
 
 /// Singleton class that manages input from the keyboard and mouse.
-class InputManager {
+class CORE_API InputManager {
 private:
     /// Singleton
     static InputManager *m_instance;

@@ -6,6 +6,5 @@ add_library(Engine INTERFACE)
 
 target_link_libraries(Engine INTERFACE
     Engine::Core
+    Engine::Math
 )
-
-

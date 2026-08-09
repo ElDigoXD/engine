@@ -15,7 +15,7 @@ set(CORE_HEADERS
 )
 
 # Crear librería estática
-add_library(Core STATIC
+add_library(Core ${LIB_TYPE}
     ${CORE_SOURCES}
     ${CORE_HEADERS}
 )
@@ -29,18 +29,11 @@ target_include_directories(Core
         ${CMAKE_CURRENT_SOURCE_DIR}/public
 )
 
-# Estándar C++
 target_compile_features(Core
     PUBLIC
         cxx_std_20
 )
-
 # Opciones de compilación
-target_compile_options(Core
-    PRIVATE
-        $<$<CXX_COMPILER_ID:Clang>:-Wall -Wextra>
-        $<$<CXX_COMPILER_ID:MSVC>:/W4>
-)
 target_compile_options(Core
     PRIVATE
         $<$<CONFIG:Debug>:
