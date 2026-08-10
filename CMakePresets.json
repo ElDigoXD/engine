@@ -6,20 +6,21 @@
             "displayName": "x64",
             "generator": "Ninja",
             "binaryDir": "${sourceDir}/Build/clang",
-            "configurationType": "Debug",
             "cacheVariables": {
                 "CMAKE_C_COMPILER": "${sourceDir}/3rdParty/Toolchain/clang/clang.exe",
                 "CMAKE_CXX_COMPILER": "${sourceDir}/3rdParty/Toolchain/clang/clang++.exe",
                 "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
                 "CMAKE_CXX_STANDARD": "20",
-                "BUILD_TESTS": "ON"
+                "BUILD_TESTS": "ON",
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_CXX_COMPILE_FEATURES": "cxx_std_20;cxx_std_17;cxx_std_14;cxx_std_11"
             }
-        },
+        }
     ],
   "buildPresets": [
     {
         "name": "x64-Debug",
         "configurePreset": "x64"
-    },
+    }
   ]
 }
