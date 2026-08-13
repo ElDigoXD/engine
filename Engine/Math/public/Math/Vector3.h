@@ -3,23 +3,25 @@
 namespace math
 {
 	template<typename T>
-	class alignas(16) Vec3
+	class Vec3
 	{
 	public:
 		Vec3();
 		Vec3(T x, T y, T z);
 		Vec3(const Vec3<T>& other);
 		Vec3(Vec3<T>&& other);
-
+		
+		Vec3 cross(const Vec3& other) const requires (!std::is_integral_v<T>);
 		Vec3 operator +(const Vec3& other) const;
 		Vec3 operator -(const Vec3& other) const;
 		Vec3 operator *(const Vec3& other) const;
 		Vec3 operator *(T value) const;
 		Vec3 operator /(const Vec3& other) const;
 		Vec3 operator /(T value) const requires (!std::is_integral_v<T>);
+		Vec3& operator +=(const Vec3<T>& rhs);
 		bool operator !=(const Vec3& other) const;
 		bool operator ==(const Vec3& other) const;
-		T operator[](int index) const;
+		T operator[](size_t index) const;
 
 		union
 		{
