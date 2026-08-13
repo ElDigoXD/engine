@@ -11,15 +11,17 @@ namespace math
 		Vec4(const Vec4<T>& other);
 		Vec4(Vec4<T>&& other);
 
+		Vec4 cross(const Vec4& other) const requires (!std::is_integral_v<T>);
 		Vec4 operator +(const Vec4& other) const;
 		Vec4 operator -(const Vec4& other) const;
 		Vec4 operator *(const Vec4& other) const;
 		Vec4 operator *(T value) const;
 		Vec4 operator /(const Vec4& other) const;
 		Vec4 operator /(T value) const requires (!std::is_integral_v<T>);
+		Vec4& operator +=(const Vec4<T>& rhs);
 		bool operator !=(const Vec4& other) const;
 		bool operator ==(const Vec4& other) const;
-		T operator[](int index) const;
+		T operator[](size_t index) const;
 
 		union
 		{
