@@ -58,6 +58,14 @@ namespace math
 	}
 
 	template<typename T>
+	T Vec3<T>::dot(const Vec3<T>& other) const
+	{
+		Vec3 tmp(*this * other);
+
+		return tmp.x + tmp.y + tmp.z;
+	}
+
+	template<typename T>
 	Vec3<T> Vec3<T>::operator-(const Vec3<T>& other) const
 	{
 		return {

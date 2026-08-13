@@ -12,6 +12,7 @@ namespace math
 		Vec3(Vec3<T>&& other);
 		
 		Vec3 cross(const Vec3& other) const requires (!std::is_integral_v<T>);
+		T dot(const Vec3& other) const;
 		Vec3 operator +(const Vec3& other) const;
 		Vec3 operator -(const Vec3& other) const;
 		Vec3 operator *(const Vec3& other) const;

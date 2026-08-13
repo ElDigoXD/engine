@@ -11,15 +11,17 @@ namespace math
 		Vec2(const Vec2<T>& other);
 		Vec2(Vec2<T>&& other);
 
+		T dot(const Vec2& other) const;
 		Vec2 operator +(const Vec2& other) const;
 		Vec2 operator -(const Vec2& other) const;
 		Vec2 operator *(const Vec2& other) const;
 		Vec2 operator *(T value) const;
 		Vec2 operator /(const Vec2& other) const;
 		Vec2 operator /(T value) const requires (!std::is_integral_v<T>);
+		Vec2& operator +=(const Vec2<T>& rhs);
 		bool operator !=(const Vec2& other) const;
 		bool operator ==(const Vec2& other) const;
-		T operator[](int index) const;
+		T operator[](size_t index) const;
 
 		union
 		{

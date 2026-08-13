@@ -53,6 +53,14 @@ namespace math
 	}
 
 	template<typename T>
+	T Vec4<T>::dot(const Vec4<T>& other) const
+	{
+		Vec4 tmp(*this * other);
+
+		return (tmp.x + tmp.y) + (tmp.z + tmp.w);
+	}
+
+	template<typename T>
 	Vec4<T> Vec4<T>::operator+(const Vec4<T>& other) const
 	{
 		return {

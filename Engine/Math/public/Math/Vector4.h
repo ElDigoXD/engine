@@ -12,6 +12,7 @@ namespace math
 		Vec4(Vec4<T>&& other);
 
 		Vec4 cross(const Vec4& other) const requires (!std::is_integral_v<T>);
+		T dot(const Vec4& other) const;
 		Vec4 operator +(const Vec4& other) const;
 		Vec4 operator -(const Vec4& other) const;
 		Vec4 operator *(const Vec4& other) const;

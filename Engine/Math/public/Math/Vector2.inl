@@ -34,6 +34,13 @@ namespace math
 	}
 
 	template<typename T>
+	T Vec2<T>::dot(const Vec2<T>& other) const
+	{
+		Vec2 tmp(*this * other);
+		return tmp.x + tmp.y;
+	}
+
+	template<typename T>
 	Vec2<T> Vec2<T>::operator+(const Vec2<T>& other) const
 	{
 		return {
@@ -88,6 +95,15 @@ namespace math
 	}
 
 	template<typename T>
+	Vec2<T>& Vec2<T>::operator+=(const Vec2<T>& other)
+	{
+		x += other.x;
+		y += other.y;
+
+		return *this;
+	}
+
+	template<typename T>
 	bool Vec2<T>::operator==(const Vec2<T>& other) const
 	{
 		return x == other.x && y == other.y;
@@ -100,7 +116,7 @@ namespace math
 	}
 
 	template<typename T>
-	T Vec2<T>::operator[](int index) const
+	T Vec2<T>::operator[](size_t index) const
 	{
 		return data[index];
 	}

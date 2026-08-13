@@ -19,6 +19,16 @@ TEST_CASE("Vector2f construction", "[Vector2]")
     REQUIRE(v.y == 4.0f);
 }
 
+TEST_CASE("Vector2f dot", "[Vector2]")
+{
+    const math::Vector2 a{ 2.0f, 3.0f };
+    const math::Vector2 b{ 4.0f, 5.0f };
+
+    const float result = a.dot(b);
+
+    REQUIRE(result == 23.0f);
+}
+
 TEST_CASE("Vector2f addition", "[Vector2]")
 {
     const math::Vector2 a{ 1.0f, 2.0f };
