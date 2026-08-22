@@ -2,3 +2,4 @@ cmake-build-*
 .idea
 .vs
 Build
+3rdParty
