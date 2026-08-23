@@ -6,12 +6,17 @@ namespace math
 	class alignas(16) Vec2
 	{
 	public:
+		using ValueType = T;
+
 		Vec2();
 		Vec2(T x, T y);
 		Vec2(const Vec2<T>& other);
 		Vec2(Vec2<T>&& other);
 
 		T dot(const Vec2& other) const;
+		Vec2<T> sqrt() const requires (!std::is_integral_v<T>);
+		bool nearly_equal(const Vec2& other) const;
+
 		Vec2 operator +(const Vec2& other) const;
 		Vec2 operator -(const Vec2& other) const;
 		Vec2 operator *(const Vec2& other) const;

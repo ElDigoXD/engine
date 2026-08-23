@@ -1,4 +1,6 @@
 
+#include "Math/Utils.h"
+
 namespace math
 {
 	template<typename T>
@@ -38,6 +40,18 @@ namespace math
 	{
 		Vec2 tmp(*this * other);
 		return tmp.x + tmp.y;
+	}
+
+	template<typename T>
+	bool Vec2<T>::nearly_equal(const Vec2<T>& other) const
+	{
+		return math::nearly_equal(x, other.x) && math::nearly_equal(y, other.y);
+	}
+
+	template<typename T>
+	Vec2<T> Vec2<T>::sqrt() const requires (!std::is_integral_v<T>)
+	{
+		return { std::sqrt(x), std::sqrt(y) };
 	}
 
 	template<typename T>
