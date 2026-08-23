@@ -12,6 +12,7 @@ set(CORE_SOURCES
 
 set(CORE_HEADERS
     public/Core/InputManager.h
+    public/Core/Types.h
 )
 
 # Crear librería estática
@@ -21,39 +22,39 @@ add_library(Core ${LIB_TYPE}
 )
 
 # Alias para uso interno/externo
-add_library( Engine::Core ALIAS Core)
+add_library(Engine::Core ALIAS Core)
 
 # Includes públicos
 target_include_directories(Core
     PUBLIC
-        ${CMAKE_CURRENT_SOURCE_DIR}/public
+    ${CMAKE_CURRENT_SOURCE_DIR}/public
 )
 
 target_compile_features(Core
     PUBLIC
-        cxx_std_20
+    cxx_std_20
 )
 # Opciones de compilación
 target_compile_options(Core
     PRIVATE
-        $<$<CONFIG:Debug>:
-            $<$<CXX_COMPILER_ID:Clang>:-Wno-unused-parameter>
-            $<$<CXX_COMPILER_ID:MSVC>:/W4>
-        >
-        $<$<CONFIG:Release>:
-            $<$<CXX_COMPILER_ID:Clang>:-Wall -Wextra>
-            $<$<CXX_COMPILER_ID:MSVC>:/W4>
-        >
+    $<$<CONFIG:Debug>:
+    $<$<CXX_COMPILER_ID:Clang>:-Wno-unused-parameter>
+    $<$<CXX_COMPILER_ID:MSVC>:/W4>
+    >
+    $<$<CONFIG:Release>:
+    $<$<CXX_COMPILER_ID:Clang>:-Wall -Wextra>
+    $<$<CXX_COMPILER_ID:MSVC>:/W4>
+    >
 )
 
 # Definiciones
 target_compile_definitions(Core
     PRIVATE
-        CORE_EXPORTS
+    CORE_EXPORTS
 )
 
 # Dependencias (ejemplo)
-target_link_libraries(Core PUBLIC 
+target_link_libraries(Core PUBLIC
     3rdParty::glfw
     3rdParty::Catch2
     3rdParty::glm

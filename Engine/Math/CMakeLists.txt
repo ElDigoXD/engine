@@ -25,6 +25,8 @@ set(MATH_HEADERS
     public/Math/Geometric.inl
     public/Math/Common.h
     public/Math/Common.inl
+    public/Math/Constants.h
+    public/Math/Types.h
 )
 
 add_library(Math ${LIB_TYPE}
