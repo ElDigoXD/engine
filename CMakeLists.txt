@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.30)
+cmake_minimum_required(VERSION 4.3)
 
 include(${CMAKE_SOURCE_DIR}/cmake/CopyDlls.cmake)
 
@@ -15,9 +15,16 @@ project(engine)
 
 set(CMAKE_CXX_STANDARD 20)
 
+if(BUILD_TESTS)
+    enable_testing()
+endif()
+
 add_subdirectory("3rdParty")
 add_subdirectory("Engine")
 add_subdirectory("Projects")
+
+
+
 
 
 
