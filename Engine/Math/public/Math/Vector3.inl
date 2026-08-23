@@ -37,7 +37,7 @@ namespace math
     }
 
     template <typename T>
-    Vec3<T>::Vec3(Vec3<T>&& other)
+    Vec3<T>::Vec3(Vec3<T>&& other) noexcept
         : x(other.x)
       , y(other.y)
       , z(other.z)

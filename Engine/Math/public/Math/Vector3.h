@@ -9,12 +9,12 @@ namespace math
         using ValueType = T;
 
         Vec3();
-        Vec3(T value);
+        explicit Vec3(T value);
         Vec3(T x,
              T y,
              T z);
         Vec3(const Vec3<T>& other);
-        Vec3(Vec3<T>&& other);
+        Vec3(Vec3<T>&& other) noexcept;
 
         Vec3 cross(const Vec3& other) const requires (!std::is_integral_v<T>);
         T dot(const Vec3& other) const;
