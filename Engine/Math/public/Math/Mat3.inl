@@ -6,7 +6,7 @@
 namespace math
 {
     template <typename T, T Value>
-    Mat3x3<T, Value>::Mat3x3()
+    Matrix3x3<T, Value>::Matrix3x3()
         : row1(Value, T{}, T{})
         , row2(T{}, Value, T{})
         , row3(T{}, T{}, Value)
@@ -14,13 +14,13 @@ namespace math
     }
 
     template <typename T, T Value>
-    Mat3x3<T, Value>::Mat3x3(std::initializer_list<float> p_raw_data)
+    Matrix3x3<T, Value>::Matrix3x3(std::initializer_list<float> p_raw_data)
     {
         std::memcpy(raw_data, p_raw_data.begin(), sizeof(raw_data));
     }
 
     template <typename T, T Value>
-    Mat3x3<T, Value>::Mat3x3(
+    Matrix3x3<T, Value>::Matrix3x3(
         const Vec3<T>& p_row1,
         const Vec3<T>& p_row2,
         const Vec3<T>& p_row3)
@@ -31,7 +31,7 @@ namespace math
     }
 
     template <typename T, T Value>
-    Mat3x3<T, Value>::Mat3x3(const Mat3x3<T, Value>& other)
+    Matrix3x3<T, Value>::Matrix3x3(const Matrix3x3<T, Value>& other)
         : row1(other.row1)
         , row2(other.row2)
         , row3(other.row3)
@@ -39,8 +39,8 @@ namespace math
     }
 
     template <typename T, T Value>
-    Mat3x3<T, Value>::Mat3x3(
-        Mat3x3<T, Value>&& other) noexcept
+    Matrix3x3<T, Value>::Matrix3x3(
+        Matrix3x3<T, Value>&& other) noexcept
         : row1(std::move(other.row1))
         , row2(std::move(other.row2))
         , row3(std::move(other.row3))
@@ -48,9 +48,9 @@ namespace math
     }
 
     template <typename T, T Value>
-    Mat3x3<T, Value> Mat3x3<T, Value>::transpose() const
+    Matrix3x3<T, Value> Matrix3x3<T, Value>::transpose() const
     {
-        Mat3x3<T, Value> result;
+        Matrix3x3<T, Value> result;
 
         result.raw_data[0] = raw_data[0];
         result.raw_data[1] = raw_data[3];
@@ -68,7 +68,7 @@ namespace math
     }
 
     template <typename T, T Value>
-    T Mat3x3<T, Value>::determinant() const
+    T Matrix3x3<T, Value>::determinant() const
     {
         return +raw_data[0] * (raw_data[4] * raw_data[8] - raw_data[7] * raw_data[5])
             - raw_data[3] * (raw_data[1] * raw_data[8] - raw_data[7] * raw_data[2])
@@ -76,7 +76,7 @@ namespace math
     }
 
     template <typename T, T Value>
-    Mat3x3<T, Value> Mat3x3<T, Value>::inverse() const
+    Matrix3x3<T, Value> Matrix3x3<T, Value>::inverse() const
     {
         Vec4<T> a = xyz0(row1);
         Vec4<T> b = xyz0(row2);
@@ -86,7 +86,7 @@ namespace math
         Vec4<T> i1 = c.cross(a);
         Vec4<T> i2 = a.cross(b);
 
-        Mat3x3<T, Value> inverse(xyz(i0), xyz(i1), xyz(i2));
+        Matrix3x3<T, Value> inverse(xyz(i0), xyz(i1), xyz(i2));
         inverse = inverse.transpose();
 
         T determinant = a.dot(b.cross(c));
@@ -97,7 +97,7 @@ namespace math
     }
 
     template <typename T, T Value>
-    Mat3x3<T, Value>& Mat3x3<T, Value>::operator=(const Mat3x3& other)
+    Matrix3x3<T, Value>& Matrix3x3<T, Value>::operator=(const Matrix3x3& other)
     {
         std::memcpy(raw_data, other.raw_data, sizeof(T) * 9);
         return *this;
@@ -105,7 +105,7 @@ namespace math
 
 
     template <typename T, T Value>
-    Mat3x3<T, Value> Mat3x3<T, Value>::operator *(const Mat3x3<T, Value>& other) const
+    Matrix3x3<T, Value> Matrix3x3<T, Value>::operator *(const Matrix3x3<T, Value>& other) const
     {
         Vec3 tmp0 = data[0] * other.row1.x;
         tmp0      += data[1] * other.row1.y;
@@ -127,7 +127,7 @@ namespace math
     }
 
     template <typename T, T Value>
-    Vec2<T> Mat3x3<T, Value>::operator *(
+    Vec2<T> Matrix3x3<T, Value>::operator *(
         const Vec2<T>& other) const
     {
         return {
@@ -137,28 +137,28 @@ namespace math
     }
 
     template <typename T, T Value>
-    bool Mat3x3<T, Value>::operator ==(
-        const Mat3x3<T, Value>& other) const
+    bool Matrix3x3<T, Value>::operator ==(
+        const Matrix3x3<T, Value>& other) const
     {
         return row1 == other.row1 && row2 == other.row2 && row3 == other.row3;
     }
 
     template <typename T, T Value>
-    bool Mat3x3<T, Value>::operator !=(
-        const Mat3x3<T, Value>& other) const
+    bool Matrix3x3<T, Value>::operator !=(
+        const Matrix3x3<T, Value>& other) const
     {
         return row1 != other.row1 || row2 != other.row2 || row3 != other.row3;
     }
 
     template <typename T, T Value>
-    T Mat3x3<T, Value>::operator [](
+    T Matrix3x3<T, Value>::operator [](
         size_t index) const
     {
         return raw_data[index];
     }
 
     template <typename T, T Value>
-    Mat3x3<T, Value> Mat3x3<T, Value>::operator *(
+    Matrix3x3<T, Value> Matrix3x3<T, Value>::operator *(
         T scalar) const
     {
         return {
@@ -169,7 +169,7 @@ namespace math
     }
 
     template <typename T, T Value>
-    Mat3x3<T, Value>& Mat3x3<T, Value>::operator *=(T scalar)
+    Matrix3x3<T, Value>& Matrix3x3<T, Value>::operator *=(T scalar)
     {
         row1 *= scalar;
         row2 *= scalar;
@@ -179,7 +179,7 @@ namespace math
     }
 
     template <typename T, T Value>
-    Mat3x3<T, Value> Mat3x3<T, Value>::operator /(
+    Matrix3x3<T, Value> Matrix3x3<T, Value>::operator /(
         T scalar) const
     {
         return {

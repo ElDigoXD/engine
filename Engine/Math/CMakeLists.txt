@@ -17,8 +17,10 @@ set(MATH_HEADERS
     public/Math/Vector4.h
     public/Math/Vector4.inl
     public/Math/Vector4.inl
-    public/Math/Mat3x3.h
-    public/Math/Mat3x3.inl
+    public/Math/Mat3.h
+    public/Math/Mat3.inl
+    public/Math/Mat4.h
+    public/Math/Mat4.inl
     public/Math/Utils.h
     public/Math/Utils.inl
     public/Math/Geometric.h
