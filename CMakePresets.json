@@ -7,8 +7,8 @@
             "generator": "Ninja",
             "binaryDir": "${sourceDir}/Build/clang",
             "cacheVariables": {
-                "CMAKE_C_COMPILER": "${sourceDir}/3rdParty/Toolchain/clang/clang.exe",
-                "CMAKE_CXX_COMPILER": "${sourceDir}/3rdParty/Toolchain/clang/clang++.exe",
+                "CMAKE_C_COMPILER": "clang.exe",
+                "CMAKE_CXX_COMPILER": "clang++.exe",
                 "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
                 "CMAKE_CXX_STANDARD": "20",
                 "BUILD_TESTS": "ON",

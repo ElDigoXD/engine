@@ -18,8 +18,6 @@ add_library(Framework ${LIB_TYPE}
     ${FRAMEWORK_HEADERS}
 )
 
-add_library(Engine::Framework ALIAS Framework)
-
 target_include_directories(Framework
     PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/public
