@@ -5,7 +5,7 @@
 
 namespace math
 {
-    template <typename T, T Value>
+    template <typename T>
     class Matrix3x3
     {
     public:
@@ -14,8 +14,8 @@ namespace math
         Matrix3x3(const Vec3<T>& row1,
                   const Vec3<T>& row2,
                   const Vec3<T>& row3);
-        Matrix3x3(const Matrix3x3<T, Value>& other);
-        Matrix3x3(Matrix3x3<T, Value>&& other) noexcept;
+        Matrix3x3(const Matrix3x3<T>& other);
+        Matrix3x3(Matrix3x3<T>&& other) noexcept;
 
         Matrix3x3 transpose() const;
         T determinant() const;
@@ -46,9 +46,9 @@ namespace math
         };
     };
 
-    using Mat3f = Matrix3x3<float, 1.0f>;
-    using Mat3i = Matrix3x3<int, 1>;
-    using Mat3d = Matrix3x3<double, 1.0>;
+    using Mat3f = Matrix3x3<float>;
+    using Mat3i = Matrix3x3<int32>;
+    using Mat3d = Matrix3x3<double>;
     using Mat3  = Mat3f;
 }
 

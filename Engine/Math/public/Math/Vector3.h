@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Math/Types.h"
+
 namespace math
 {
     template <typename T>
@@ -46,9 +48,8 @@ namespace math
         };
     };
 
-
     using Vector3f = Vec3<float>;
-    using Vector3i = Vec3<int>;
+    using Vector3i = Vec3<int32>;
     using Vector3d = Vec3<double>;
     using Vector3  = Vector3f;
 }
