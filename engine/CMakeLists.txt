@@ -1,6 +1,7 @@
 
-add_subdirectory("Math")
-add_subdirectory("Core")
+add_subdirectory("math")
+add_subdirectory("core")
+add_subdirectory("modules")
 
 add_library(Engine INTERFACE)
 

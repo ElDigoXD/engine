@@ -24,9 +24,9 @@ if (BUILD_TESTS)
 endif ()
 
 add_subdirectory("3rdParty")
-add_subdirectory("Framework")
-add_subdirectory("Engine")
-add_subdirectory("Projects")
+add_subdirectory("framework")
+add_subdirectory("engine")
+add_subdirectory("projects")
 
 
 
