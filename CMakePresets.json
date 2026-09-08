@@ -5,7 +5,7 @@
             "name": "x64",
             "displayName": "x64",
             "generator": "Ninja",
-            "binaryDir": "${sourceDir}/Build/clang",
+            "binaryDir": "${sourceDir}/bin/clang",
             "cacheVariables": {
                 "CMAKE_C_COMPILER": "clang.exe",
                 "CMAKE_CXX_COMPILER": "clang++.exe",

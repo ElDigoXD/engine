@@ -105,15 +105,15 @@ namespace math
     template <typename T>
     Matrix3x3<T> Matrix3x3<T>::operator *(const Matrix3x3<T>& other) const
     {
-        Vec3 tmp0 = data[0] * other.row1.x;
+        Vec3 tmp0  = data[0] * other.row1.x;
         tmp0      += data[1] * other.row1.y;
         tmp0      += data[2] * other.row1.z;
 
-        Vec3 tmp1 = data[0] * other.row2.x;
+        Vec3 tmp1  = data[0] * other.row2.x;
         tmp1      += data[1] * other.row2.y;
         tmp1      += data[2] * other.row2.z;
 
-        Vec3 tmp2 = data[0] * other.row3.x;
+        Vec3 tmp2  = data[0] * other.row3.x;
         tmp2      += data[1] * other.row3.y;
         tmp2      += data[2] * other.row3.z;
 
