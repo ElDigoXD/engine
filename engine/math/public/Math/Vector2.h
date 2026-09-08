@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Math/Types.h"
+#include "Framework/PlatformDefines.h"
 
 namespace math
 {
@@ -13,22 +15,22 @@ namespace math
         Vec2(T x,
              T y);
         Vec2(const Vec2<T>& other);
-        Vec2(Vec2<T>&& other);
+        Vec2(Vec2<T>&& other) noexcept;
 
         TT_FORCEINLINE T dot(const Vec2& other) const;
-        Vec2<T> sqrt() const requires (!std::is_integral_v<T>);
-        bool nearly_equal(const Vec2& other) const;
+        TT_FORCEINLINE Vec2<T> sqrt() const requires (!std::is_integral_v<T>);
+        TT_FORCEINLINE bool nearly_equal(const Vec2& other) const;
 
-        Vec2 operator +(const Vec2& other) const;
-        Vec2 operator -(const Vec2& other) const;
-        Vec2 operator *(const Vec2& other) const;
-        Vec2 operator *(T value) const;
-        Vec2 operator /(const Vec2& other) const;
-        Vec2 operator /(T value) const requires (!std::is_integral_v<T>);
-        Vec2& operator +=(const Vec2<T>& rhs);
-        bool operator !=(const Vec2& other) const;
-        bool operator ==(const Vec2& other) const;
-        T operator[](size_t index) const;
+        TT_FORCEINLINE Vec2 operator +(const Vec2& other) const;
+        TT_FORCEINLINE Vec2 operator -(const Vec2& other) const;
+        TT_FORCEINLINE Vec2 operator *(const Vec2& other) const;
+        TT_FORCEINLINE Vec2 operator *(T value) const;
+        TT_FORCEINLINE Vec2 operator /(const Vec2& other) const;
+        TT_FORCEINLINE Vec2 operator /(T value) const requires (!std::is_integral_v<T>);
+        TT_FORCEINLINE Vec2& operator +=(const Vec2<T>& rhs);
+        TT_FORCEINLINE bool operator !=(const Vec2& other) const;
+        TT_FORCEINLINE bool operator ==(const Vec2& other) const;
+        TT_FORCEINLINE T operator[](size_t index) const;
 
         union
         {
@@ -43,9 +45,14 @@ namespace math
     };
 
 
-    using Vector2f = Vec2<float>;
-    using Vector2i = Vec2<int>;
-    using Vector2d = Vec2<double>;
+
+}
+
+namespace tt
+{
+    using Vector2f = math::Vec2<float>;
+    using Vector2i = math::Vec2<int32>;
+    using Vector2d = math::Vec2<double>;
     using Vector2  = Vector2f;
 }
 

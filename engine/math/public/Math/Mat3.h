@@ -45,10 +45,13 @@ namespace math
             Vec3<T> data[3];
         };
     };
+}
 
-    using Mat3f = Matrix3x3<float>;
-    using Mat3i = Matrix3x3<int32>;
-    using Mat3d = Matrix3x3<double>;
+namespace tt
+{
+    using Mat3f = math::Matrix3x3<float>;
+    using Mat3i = math::Matrix3x3<int32>;
+    using Mat3d = math::Matrix3x3<double>;
     using Mat3  = Mat3f;
 }
 

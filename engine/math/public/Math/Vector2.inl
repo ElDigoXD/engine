@@ -28,9 +28,9 @@ namespace math
 	}
 
 	template<typename T>
-	Vec2<T>::Vec2(Vec2<T>&& other)
+	Vec2<T>::Vec2(Vec2<T>&& other) noexcept
 		: x(other.x)
-		, y(other.y)
+		  , y(other.y)
 	{
 
 	}

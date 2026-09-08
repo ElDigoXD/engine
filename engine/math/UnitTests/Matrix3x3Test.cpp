@@ -6,19 +6,19 @@ namespace math
 {
     TEST_CASE("Mat3 default construction", "[Matrix3x3]")
     {
-        const math::Mat3 m;
+        const tt::Mat3 m;
 
-        CHECK(m.row1 == math::Vector3(1.0f, 0.0f, 0.0f));
-        CHECK(m.row2 == math::Vector3(0.0f, 1.0f, 0.0f));
-        CHECK(m.row3 == math::Vector3(0.0f, 0.0f, 1.0f));
+        CHECK(m.row1 == tt::Vector3(1.0f, 0.0f, 0.0f));
+        CHECK(m.row2 == tt::Vector3(0.0f, 1.0f, 0.0f));
+        CHECK(m.row3 == tt::Vector3(0.0f, 0.0f, 1.0f));
     }
 
     TEST_CASE("Mat3 move construction", "[Matrix3x3]")
     {
-        const math::Vector3 row(0.0f, 1.0f, 4.0f);
+        const tt::Vector3 row(0.0f, 1.0f, 4.0f);
 
-        math::Mat3 m1 = {row, row, row};
-        const math::Mat3 m2(std::move(m1));
+        tt::Mat3 m1 = {row, row, row};
+        const tt::Mat3 m2(std::move(m1));
 
         CHECK(m2.row1 == row);
         CHECK(m2.row2 == row);
@@ -27,13 +27,13 @@ namespace math
 
     TEST_CASE("Mat3 mult Mat3", "[Matrix3x3]")
     {
-        const math::Vector3 row(0.0f, 1.0f, 4.0f);
-        const math::Vector3 rowResult(0.0f, 5.0f, 20.0f);
+        const tt::Vector3 row(0.0f, 1.0f, 4.0f);
+        const tt::Vector3 rowResult(0.0f, 5.0f, 20.0f);
 
-        const math::Mat3 m1 = {row, row, row};
-        const math::Mat3 m2 = {row, row, row};
+        const tt::Mat3 m1 = {row, row, row};
+        const tt::Mat3 m2 = {row, row, row};
 
-        const math::Mat3 result = m1 * m2;
+        const tt::Mat3 result = m1 * m2;
 
         CHECK(result.row1 == rowResult);
         CHECK(result.row2 == rowResult);
@@ -42,13 +42,13 @@ namespace math
 
     TEST_CASE("Mat3 equal Mat3", "[Matrix3x3]")
     {
-        const math::Mat3 m1 = {
+        const tt::Mat3 m1 = {
             1.0f, 0.0f, 5.0f,
             0.0f, 1.0f, 2.0f,
             0.0f, 0.0f, 1.0f
         };
 
-        const math::Mat3 m2 = {
+        const tt::Mat3 m2 = {
             1.0f, 0.0f, 5.0f,
             0.0f, 1.0f, 2.0f,
             0.0f, 0.0f, 1.0f
@@ -59,13 +59,13 @@ namespace math
 
     TEST_CASE("Mat3 not equal Mat3 row 1", "[Matrix3x3]")
     {
-        const math::Mat3 m1 = {
+        const tt::Mat3 m1 = {
             1.0f, 1.0f, 5.0f,
             0.0f, 1.0f, 2.0f,
             0.0f, 0.0f, 1.0f
         };
 
-        const math::Mat3 m2 = {
+        const tt::Mat3 m2 = {
             1.0f, 0.0f, 5.0f,
             0.0f, 1.0f, 2.0f,
             0.0f, 0.0f, 1.0f
@@ -76,13 +76,13 @@ namespace math
 
     TEST_CASE("Mat3 not equal Mat3 row 2", "[Matrix3x3]")
     {
-        const math::Mat3 m1 = {
+        const tt::Mat3 m1 = {
             1.0f, 0.0f, 5.0f,
             0.0f, 0.0f, 2.0f,
             0.0f, 0.0f, 1.0f
         };
 
-        const math::Mat3 m2 = {
+        const tt::Mat3 m2 = {
             1.0f, 0.0f, 5.0f,
             0.0f, 1.0f, 2.0f,
             0.0f, 0.0f, 1.0f
@@ -93,13 +93,13 @@ namespace math
 
     TEST_CASE("Mat3 not equal Mat3 row 3", "[Matrix3x3]")
     {
-        const math::Mat3 m1 = {
+        const tt::Mat3 m1 = {
             1.0f, 0.0f, 5.0f,
             0.0f, 1.0f, 2.0f,
             0.0f, 1.0f, 1.0f
         };
 
-        const math::Mat3 m2 = {
+        const tt::Mat3 m2 = {
             1.0f, 0.0f, 5.0f,
             0.0f, 1.0f, 2.0f,
             0.0f, 0.0f, 1.0f
@@ -110,15 +110,15 @@ namespace math
 
     TEST_CASE("Mat3 mult Vector2", "[Matrix3x3]")
     {
-        const math::Vector2 v(2.0f, 3.0f);
+        const tt::Vector2 v(2.0f, 3.0f);
 
-        const math::Mat3 m1 = {
+        const tt::Mat3 m1 = {
             1.0f, 0.0f, 5.0f,
             0.0f, 1.0f, 2.0f,
             0.0f, 0.0f, 1.0f
         };
 
-        const math::Vector2 result = m1 * v;
+        const tt::Vector2 result = m1 * v;
 
         CHECK(result.x == 7.0f);
         CHECK(result.y == 5.0f);
@@ -126,7 +126,7 @@ namespace math
 
     TEST_CASE("Mat3 index value", "[Matrix3x3]")
     {
-        const math::Mat3 m1 = {
+        const tt::Mat3 m1 = {
             1.0f, 0.0f, 5.0f,
             0.0f, 1.0f, 2.0f,
             0.0f, 0.0f, 1.0f
@@ -138,15 +138,15 @@ namespace math
 
     TEST_CASE("Mat3 mult scalar", "[Matrix3x3]")
     {
-        const math::Mat3 m1 = {
+        const tt::Mat3 m1 = {
             1.0f, 0.0f, 5.0f,
             0.0f, 1.0f, 2.0f,
             0.0f, 0.0f, 1.0f
         };
 
-        const math::Mat3 result = m1 * 2.0f;
+        const tt::Mat3 result = m1 * 2.0f;
 
-        CHECK(result == math::Mat3{
+        CHECK(result == tt::Mat3{
               2.0f, 0.0f, 10.0f,
               0.0f, 2.0f, 4.0f,
               0.0f, 0.0f, 2.0f
@@ -155,15 +155,15 @@ namespace math
 
     TEST_CASE("Mat3 div scalar", "[Matrix3x3]")
     {
-        const math::Mat3 m1 = {
+        const tt::Mat3 m1 = {
             1.0f, 0.0f, 5.0f,
             0.0f, 1.0f, 2.0f,
             0.0f, 0.0f, 1.0f
         };
 
-        const math::Mat3 result = m1 / 2.0f;
+        const tt::Mat3 result = m1 / 2.0f;
 
-        CHECK(result == math::Mat3{
+        CHECK(result == tt::Mat3{
               0.5f, 0.0f, 2.5f,
               0.0f, 0.5f, 1.0f,
               0.0f, 0.0f, 0.5f
@@ -172,15 +172,15 @@ namespace math
 
     TEST_CASE("Mat3 transpose", "[Matrix3x3]")
     {
-        const math::Mat3 m1 = {
+        const tt::Mat3 m1 = {
             1.0f, 1.0f, 1.0f,
             2.0f, 2.0f, 2.0f,
             3.0f, 3.0f, 3.0f
         };
 
-        const math::Mat3 result = m1.transpose();
+        const tt::Mat3 result = m1.transpose();
 
-        CHECK(result == math::Mat3{
+        CHECK(result == tt::Mat3{
               1.0f, 2.0f, 3.0f,
               1.0f, 2.0f, 3.0f,
               1.0f, 2.0f, 3.0f
@@ -189,7 +189,7 @@ namespace math
 
     TEST_CASE("Mat3 determinant", "[Matrix3x3]")
     {
-        const math::Mat3 m1 = {
+        const tt::Mat3 m1 = {
             1.0f, 2.0f, 3.0f,
             0.0f, 4.0f, 5.0f,
             1.0f, 0.0f, 6.0f
@@ -202,15 +202,15 @@ namespace math
 
     TEST_CASE("Mat3 inverse", "[Matrix3x3]")
     {
-        const math::Mat3 m1 = {
+        const tt::Mat3 m1 = {
             1.0f, 2.0f, 0.0f,
             0.0f, 1.0f, 1.0f,
             1.0f, 0.0f, 1.0f
         };
 
-        const math::Mat3 result   = m1.inverse();
-        const math::Mat3 identity = m1 * result;
+        const tt::Mat3 result   = m1.inverse();
+        const tt::Mat3 identity = m1 * result;
 
-        CHECK(identity == Mat3());
+        CHECK(identity == tt::Mat3());
     }
 }

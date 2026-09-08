@@ -50,10 +50,13 @@ namespace math
             Vec4<T> data[4];
         };
     };
+}
 
-    using Mat4i = Matrix4x4<int32>;
-    using Mat4f = Matrix4x4<float>;
-    using Mat4d = Matrix4x4<double>;
+namespace tt
+{
+    using Mat4i = math::Matrix4x4<int32>;
+    using Mat4f = math::Matrix4x4<float>;
+    using Mat4d = math::Matrix4x4<double>;
     using Mat4  = Mat4f;
 }
 

@@ -38,8 +38,7 @@ namespace math
     }
 
     template <typename T>
-    Matrix3x3<T>::Matrix3x3(
-        Matrix3x3<T>&& other) noexcept
+    Matrix3x3<T>::Matrix3x3(Matrix3x3<T>&& other) noexcept
         : row1(std::move(other.row1))
         , row2(std::move(other.row2))
         , row3(std::move(other.row3))

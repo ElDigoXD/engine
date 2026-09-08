@@ -61,6 +61,10 @@ target_compile_options(Math
     >
 )
 
+target_link_libraries(Math PUBLIC
+    Framework
+)
+
 # Definiciones
 target_compile_definitions(Math
     PRIVATE

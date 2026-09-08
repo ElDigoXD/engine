@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Math/Types.h"
+#include "Framework/PlatformDefines.h"
 
 namespace math
 {
@@ -18,20 +19,20 @@ namespace math
         Vec4(const Vec4<T>& other);
         Vec4(Vec4<T>&& other) noexcept;
 
-        Vec4 cross(const Vec4& other) const requires (!std::is_integral_v<T>);
-        T dot(const Vec4& other) const;
-        bool nearly_equal(const Vec4& other) const;
+        TT_FORCEINLINE Vec4 cross(const Vec4& other) const requires (!std::is_integral_v<T>);
+        TT_FORCEINLINE T dot(const Vec4& other) const;
+        TT_FORCEINLINE bool nearly_equal(const Vec4& other) const;
 
-        Vec4 operator +(const Vec4& other) const;
-        Vec4 operator -(const Vec4& other) const;
-        Vec4 operator *(const Vec4& other) const;
-        Vec4 operator *(T value) const;
-        Vec4 operator /(const Vec4& other) const;
-        Vec4 operator /(T value) const requires (!std::is_integral_v<T>);
-        Vec4& operator +=(const Vec4<T>& other);
-        bool operator !=(const Vec4& other) const;
-        bool operator ==(const Vec4& other) const;
-        T operator[](size_t index) const;
+        TT_FORCEINLINE Vec4 operator +(const Vec4& other) const;
+        TT_FORCEINLINE Vec4 operator -(const Vec4& other) const;
+        TT_FORCEINLINE Vec4 operator *(const Vec4& other) const;
+        TT_FORCEINLINE Vec4 operator *(T value) const;
+        TT_FORCEINLINE Vec4 operator /(const Vec4& other) const;
+        TT_FORCEINLINE Vec4 operator /(T value) const requires (!std::is_integral_v<T>);
+        TT_FORCEINLINE Vec4& operator +=(const Vec4<T>& other);
+        TT_FORCEINLINE bool operator !=(const Vec4& other) const;
+        TT_FORCEINLINE bool operator ==(const Vec4& other) const;
+        TT_FORCEINLINE T operator[](size_t index) const;
 
         union
         {
@@ -46,10 +47,13 @@ namespace math
             T data[4];
         };
     };
+}
 
-    using Vector4f = Vec4<float>;
-    using Vector4i = Vec4<int32>;
-    using Vector4d = Vec4<double>;
+namespace tt
+{
+    using Vector4f = math::Vec4<float>;
+    using Vector4i = math::Vec4<int32>;
+    using Vector4d = math::Vec4<double>;
     using Vector4  = Vector4f;
 }
 

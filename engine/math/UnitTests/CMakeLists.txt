@@ -5,6 +5,7 @@ set(MATH_SOURCES_UT
     Matrix3x3Test.cpp
     UtilsTest.cpp
     CommonTest.cpp
+    Matrix4x4Test.cpp
 )
 
 add_executable(Math_UT ${MATH_SOURCES_UT})

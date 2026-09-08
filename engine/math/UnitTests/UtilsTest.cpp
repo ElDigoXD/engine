@@ -10,7 +10,7 @@ namespace math
 {
     TEST_CASE("Vector4f length", "[Vector4]")
     {
-        const math::Vector4 a{2.0f, 3.0f, 6.0f, 0.0f};
+        const tt::Vector4 a{2.0f, 3.0f, 6.0f, 0.0f};
 
         const float result = math::length(a);
 
@@ -19,8 +19,8 @@ namespace math
 
     TEST_CASE("Vector4f distance", "[Vector4]")
     {
-        const math::Vector4 a{0.0f, 0.0f, 0.0f, 0.0f};
-        const math::Vector4 b{1.0f, 0.0f, 0.0f, 0.0f};
+        const tt::Vector4 a{0.0f, 0.0f, 0.0f, 0.0f};
+        const tt::Vector4 b{1.0f, 0.0f, 0.0f, 0.0f};
 
         const float result = math::distance(a, b);
 
@@ -29,7 +29,7 @@ namespace math
 
     TEST_CASE("Vector3f length", "[Vector3]")
     {
-        const math::Vector3 a{2.0f, 3.0f, 6.0f};
+        const tt::Vector3 a{2.0f, 3.0f, 6.0f};
 
         const float result = math::length(a);
 
@@ -38,8 +38,8 @@ namespace math
 
     TEST_CASE("Vector3f distance", "[Vector3]")
     {
-        const math::Vector3 a{0.0f, 0.0f, 0.0f};
-        const math::Vector3 b{1.0f, 0.0f, 0.0f};
+        const tt::Vector3 a{0.0f, 0.0f, 0.0f};
+        const tt::Vector3 b{1.0f, 0.0f, 0.0f};
 
         const float result = math::distance(a, b);
 
@@ -48,7 +48,7 @@ namespace math
 
     TEST_CASE("Vector2f length", "[Vector2]")
     {
-        const math::Vector2 a{3.0f, 4.0f};
+        const tt::Vector2 a{3.0f, 4.0f};
 
         const float result = math::length(a);
 
@@ -57,8 +57,8 @@ namespace math
 
     TEST_CASE("Vector2f distance", "[Vector3]")
     {
-        const math::Vector2 a{0.0f, 0.0f};
-        const math::Vector2 b{1.0f, 0.0f};
+        const tt::Vector2 a{0.0f, 0.0f};
+        const tt::Vector2 b{1.0f, 0.0f};
 
         const float result = math::distance(a, b);
 
@@ -67,10 +67,10 @@ namespace math
 
     TEST_CASE("Vector3f normalize", "[Vector3]")
     {
-        const math::Vector3 a{1.0f, 1.0f, 1.0f};
+        const tt::Vector3 a{1.0f, 1.0f, 1.0f};
 
-        const math::Vector3 result = math::normalize(a);
+        const tt::Vector3 result = math::normalize(a);
 
-        CHECK(math::nearly_equal(result, math::Vector3(0.57735, 0.57735, 0.57735)));
+        CHECK(math::nearly_equal(result, tt::Vector3(0.57735, 0.57735, 0.57735)));
     }
 }
