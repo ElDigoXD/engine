@@ -13,6 +13,7 @@ set(CORE_SOURCES
 set(CORE_HEADERS
     public/Core/InputManager.h
     public/Core/Types.h
+        public/Core/Module.h
 )
 
 # Crear librería estática
