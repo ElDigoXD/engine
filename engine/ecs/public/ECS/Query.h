@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Filter.h"
 #include "ECS/Component.h"
 #include "ECS/Filter.h"
 #include "ECS/TypeList.h"
@@ -217,6 +218,18 @@ namespace ecs::query
 
     template<typename T>
     concept QueryFilter = std::derived_from<T, ecs::query::FilterTag>;
+
+    template<ecs::query::QueryFilter Filter, ecs::AccessFilter... FilterAccess>
+    consteval bool CheckFilter();
+
+    template<ecs::query::QueryFilter Filter, ecs::AccessFilter... FilterAccess>
+    requires std::same_as<Filter, Include>
+    consteval  bool CheckFilter()
+    {
+       return Include<FilterAccess...>::template Check<Filter>();
+    }
+
+    //TODO Hacer para el resto.
 
     template<template<typename...> class Filter, typename... Filters>
     struct Find
