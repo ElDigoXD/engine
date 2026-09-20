@@ -1,9 +1,9 @@
 #include "Core/Allocator.h"
 
 #include <cassert>
+#include <cstddef>
 #include <new>
 #include <utility>
-#include <cstddef>
 
 std::size_t core::Allocator::Block::size() const
 {
@@ -149,6 +149,7 @@ void* core::Allocator::try_allocate(
     const std::uintptr_t block_start =
         reinterpret_cast<std::uintptr_t>(block);
 
+    // [Block start][ padding ][ AllocationHeader ][ user data ]
     const std::uintptr_t raw_data_start = block_start + sizeof(Block);
 
     const auto data_start =
@@ -159,11 +160,7 @@ void* core::Allocator::try_allocate(
 
     const auto header_start =
             data_start - sizeof(AllocationHeader);
-
-    // [Block start][ padding ][ AllocationHeader ][ user data ]
-    const auto padding =
-            data_start - (block_start + sizeof(Block));
-
+    
     const auto required =
         (data_start + size) - block_start;
 
