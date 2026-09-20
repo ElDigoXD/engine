@@ -8,12 +8,15 @@ project(Core
 # Archivos de la librería
 set(CORE_SOURCES
     private/InputManager.cpp
+    private/Allocator.cpp
 )
 
 set(CORE_HEADERS
     public/Core/InputManager.h
     public/Core/Types.h
-        public/Core/Module.h
+    public/Core/Module.h
+    public/Core/Allocator.h
+    UnitTests/AllocatorTest.cpp
 )
 
 # Crear librería estática
@@ -60,3 +63,8 @@ target_link_libraries(Core PUBLIC
     3rdParty::Catch2
     3rdParty::glm
 )
+
+if (BUILD_TESTS)
+  add_subdirectory(UnitTests)
+endif ()
+
