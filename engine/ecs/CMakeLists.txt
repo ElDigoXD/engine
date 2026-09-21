@@ -11,18 +11,21 @@ set(ECS_SOURCES
 )
 
 set(ECS_PUBLIC_HEADERS
+    public/ECS/Component.h
+    public/ECS/Entity.h
+    public/ECS/EntityIndex.h
     public/ECS/World.h
     public/ECS/World.inl
     public/ECS/WorldView.h
     public/ECS/WorldView.inl
     public/ECS/System.h
     public/ECS/Query.h
+    public/ECS/Filter.h
+    public/ECS/TypeList.h
 )
 
 set(ECS_PRIVATE_HEADERS
     private/Stage.h
-    public/ECS/Filter.h
-    public/ECS/TypeList.h
 )
 
 add_library(ECS ${LIB_TYPE}
